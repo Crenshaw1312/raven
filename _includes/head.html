@@ -1,0 +1,80 @@
+<head>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <meta charset="utf-8">
+    <link rel="manifest" href="{{ site.baseurl }}/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="blog, {{ site.author }}, {{ site.title }}">
+    <meta name="author" content="{{ site.author }}">
+
+    {% if page.url == "/404.html" %}
+        <meta http-equiv="refresh" content="5; url={{ site.baseurl }}">
+    {% endif %}
+
+    {% if page.snippet %}
+        {% assign desc = page.snippet %}
+    {% else %}
+        {% assign desc = site.subtitle %}
+    {% endif %}
+
+    {% if page.title %}
+        {% assign title = page.title %}
+    {% else %}
+        {% assign title = site.title %}
+    {% endif %}
+
+    <meta name="description" content="{{ desc }}">
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon-16x16.png">
+    <link rel="icon" type="image/ico" href="{{ site.baseurl }}/{{site.favicon_location}}">
+    <link rel="shortcut-icon" type="image/ico" href="{{ site.baseurl }}/{{site.favicon_location}}">
+
+    <!-- For Facebook -->
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:image" content="{{ site.baseurl }}/{{site.favicon_location}}" />
+    <meta property="og:description" content="{{ desc }}" />
+
+    <!-- For Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ desc }}" />
+    <meta name="twitter:image" content="{{ site.baseurl }}/{{site.favicon_location}}" />
+
+    {% if site.google_analytics %}
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+
+    <script>
+        (function(e, t, n, i, s, a, c) {
+            e[n] = e[n] || function() {
+                (e[n].q = e[n].q || []).push(arguments)
+            };
+            a = t.createElement(i);
+            c = t.getElementsByTagName(i)[0];
+            a.async = true;
+            a.src = s;
+            c.parentNode.insertBefore(a, c)
+        })(window, document, "galite", "script", "https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js");
+
+        galite('create', '{{ site.google_analytics }}', 'auto');
+        galite('send', 'pageview');
+    </script>
+        
+        <!-- End Global site tag (gtag.js) - Google Analytics -->
+
+    {% endif %}
+
+    {% seo %}
+
+<!-- progress bar -->
+
+<script src="https://unpkg.com/readline-js/lib/readline-js.js"></script>
+
+</head>

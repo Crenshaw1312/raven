@@ -1,0 +1,11 @@
+---
+layout: default
+permalink: /archive/
+---
+
+{% for post in site.posts %}
+    {{ post.date | date:"%Y-%m-%d" }} &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    <br>
+{% endfor %}
+
+

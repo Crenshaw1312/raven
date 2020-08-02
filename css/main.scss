@@ -1,0 +1,324 @@
+---
+
+---
+
+// Imports
+
+@import url('https://cdn.xuac.now.sh/css/JetBrainsMono.css');
+
+
+// Customization Variables
+
+$font: JetBrainsMono, monospace;
+
+$logo-size: 80px;
+
+$max-width: 740px;
+$med-width: 600px;
+$small-width: 480px;
+
+
+$accent: #8A59F1;
+
+$fore-color: #303030;
+$back-color: #FFFFFF;
+
+$code-fore: #F8F8F8;
+$code-back: #272727;
+
+$quote: #333333;
+
+
+// Basic
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; /* iOS Safari */
+}
+body {
+    margin: 0;
+    font-family: $font;
+    height: 100%;
+    color: $fore-color;
+    background-color: $back-color;
+}
+a {
+    text-decoration: none;
+    color: $accent;
+}
+a:hover {
+    text-decoration: underline;
+}
+hr {
+    border: none;
+    margin: 5px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+pre, code {
+    background-color: $code-back;
+    color: $code-fore;
+    border-radius: 5px;
+}
+
+pre {
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.20);
+    overflow: scroll;
+    padding: 8px;
+	code {
+	    padding: 3px;
+	}
+}
+
+select:focus, button:focus, input:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+}
+
+
+::-moz-selection {
+  color: $back-color;
+  background: $fore-color;
+}
+
+::selection {
+  color: $back-color;
+  background: $fore-color;
+}
+
+// divs
+
+.alignable {
+    display: inline-block;
+}
+.pull-left {
+    @extend .alignable;
+    float: left;
+}
+.pull-right {
+    @extend .alignable;
+    float: right;
+}
+.container {
+    max-width: $max-width;
+    margin: auto;
+}
+.wrapper {
+    min-height: 100%;
+}
+
+// Navbar
+
+#site-title {
+    font-size: 32px;
+    color: $fore-color;
+    display: inline-block;
+}
+.navbar {
+    padding: 50px 0 50px 0;
+}
+.navbar-ul {
+    display: inline-block;
+    margin: 0;
+    padding: 5px 0 5px 0;
+    margin-left: 20px;
+}
+.navbar-list {
+    list-style-type: none;
+    margin: 0 5px 0 10px;
+}
+
+// index
+
+.post-title{
+    max-width: 500px;
+    color: $fore-color;
+    display: inline-block;
+    font-size: 30px;
+}
+.post-details{
+    @extend .pull-right;
+    text-align: right;
+    margin-left: 20px;
+}
+.post-snippet{
+    max-width: 500px;
+}
+
+#post {
+    text-align: justify;
+}
+
+
+// pages
+
+.page-title {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    line-height: 2;
+    margin: 20px;
+}
+.page-subtitle{
+    text-align: center;
+}
+
+// footer
+
+.footer{
+    text-align: center;
+    font-size: small;
+    padding-bottom: 5px;
+}
+
+// Mobile
+
+@media (max-width: 800px) {
+    .container {
+        max-width: $med-width;
+        transition: 0.3s ease all;
+    }
+    pre, code {
+        max-width: $med-width;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        max-width: 83%;
+    }
+    .navbar-ul {
+        margin-top: 5px;
+    }
+    pre, code {
+        max-width: 83%;
+    }
+}
+
+@media (max-width: 500px) {
+	.navbar {
+		text-align: center;
+		padding: 50px 0px 0px 0px;
+	}
+	#site-title {
+		width: 100%;
+		float: none;
+	}
+	#navlist {
+		padding: 10px 0 10px 0;
+		margin: 0;
+		display: block;
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	#navlist li.alignable {
+		display: inline-block;
+	}
+	#navlist li.pull-left {
+		float: none;
+	}
+	#navlist li.navbar-list {
+		margin: 0;
+	}
+        pre, code {
+            max-width: $small-width;
+        }
+}
+
+//  typography
+
+.content {
+    line-height: 1.5;
+    ol {
+        counter-reset: list;
+    }
+    ol > li {
+        list-style-position: none;
+        position: relative;
+        list-style: none;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    ul > li {
+        margin: 5px 0 5px 0;
+    }
+    ul {
+        padding: 0 20px 0 20px;;
+    }
+    ol {
+        padding: 0 30px 0 30px;
+    }
+    ol > li:before {
+        content: "[" counter(list, decimal) "] ";
+        counter-increment: list;
+        position: absolute;
+        left: -30px;
+    }
+    blockquote {
+        border-left: 5px solid $quote;
+        margin: 20px 0 20px 0;
+        padding: 2px 8px 2px 8px;
+        font-style: italic;
+    }
+    .logo {
+        height: $logo-size;
+        width: $logo-size;
+        display: block;
+        margin: 50px auto 50px auto;
+        p & {
+            padding: 0;
+            margin: 0;
+        }
+        @media (max-width: $small-width) {
+            img {
+                margin-top: -5px;
+            }
+        }
+    }
+    img {
+        text-align: center;
+        width: 100%;
+        border-radius: 12px;
+    }
+}
+
+table {
+    margin: 15px 0;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 0;
+}
+table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th :first-child, table tr td :first-child {
+    margin: 0;
+}
+table tr th :last-child, table tr td :last-child {
+    margin: 0;
+}

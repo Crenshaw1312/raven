@@ -1,0 +1,40 @@
+lang: en_US
+title: Raven
+author: Maximous Black
+tagline: A piracy blog
+description: This is a blog about piracy and news related to piracy. Any information on this blog is only for informational purposes and doesn't take responsibility for any liabilities caused by people using this information.
+
+url: "https://xuac.github.io"
+baseurl: "/raven"
+
+google_site_verification: 5jYtdwLS7gzPX2uag2JzUft_UtX5n54z-egEeUkftdg
+google_analytics: UA-131672698-2
+
+paginate: 6
+paginate_path: "/p/:num/"
+
+footer_url: "https://github.com/xuac/raven"
+footer_text: "Star on GitHub"
+
+logo: logo.svg
+favicon_location: assets/favicon.ico
+
+permalink: /:year-:month-:day-:title/
+
+navbar:
+ - name: "Blog"
+   link: ""
+ - name: "About"
+   link: "about"
+ - name: "Archive"
+   link: "archive"
+
+sass:
+    style: compressed
+    sass_dir: css
+
+plugins:
+# - jekyll-github-metadata
+ - jekyll-paginate
+ - jekyll-seo-tag
+ - jekyll-feed
